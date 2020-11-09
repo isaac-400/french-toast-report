@@ -1,5 +1,7 @@
 import requests, datetime, json, yagmail
 
+SENDING_EMAIL = "frenchtoastreport@gmail.com"
+
 def adduser(email, name):
     USERS[email] = name
     updateusers()
@@ -35,7 +37,7 @@ def toasttoday():
 
 if __name__ == '__main__':
     if toasttoday():
-        yag = yagmail.SMTP("frenchtoastreport@gmail.com")
+        yag = yagmail.SMTP(SENDING_EMAIL)
         for addr, name in getusers().items():
             message = "Good morning {name}! \n\n French Toast Sticks will be served in foco today."
             print("sending mail to:", addr)
