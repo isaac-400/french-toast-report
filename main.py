@@ -1,11 +1,4 @@
-import requests, datetime, json, smtplib, ssl
-
-SMTP_SERVER = "localhost"
-PORT = 1025
-SENDER_EMAIL = "test@gmail.com"
-PASSWORD = "1234"
-USERS = {}
-
+import requests, datetime, json, yagmail
 
 def adduser(email, name):
     USERS[email] = name
@@ -42,16 +35,11 @@ def toasttoday():
 
 if __name__ == '__main__':
     if toasttoday():
-        server = smtplib.SMTP(SMTP_SERVER, PORT)
-        for addr, name in USERS.items():
-
-            message = """
-            Subject: French Toast Stick Report - {date}
-            
-            
-            Good morning {name}! French Toast Sticks will be served in foco today.
-            """
-            server.sendmail(SENDER_EMAIL, addr, message.format(date=datetime.date.today(), name=name))
-
-        server.quit()
-
+        yag = yagmail.SMTP("frenchtoastreport@gmail.com")
+        for addr, name in getusers().items():
+            message = "Good morning {name}! \n\n French Toast Sticks will be served in foco today."
+            print("sending mail to:", addr)
+            yag.send(addr, "French Toast Stick Report - {date}".format(date=datetime.date.today()), message.format(name=name))
+        yag.close()
+    else:
+        print("No toast today. :( ")

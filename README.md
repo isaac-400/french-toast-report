@@ -15,7 +15,7 @@ This command line app will email a set of users when this delectable dish is on 
 ---
 To do:
 - [ ] refactor user addition as command line argument
-- [ ] set up Yagmail integration
+- [X] set up Yagmail integration
 - [ ] host
 
 
