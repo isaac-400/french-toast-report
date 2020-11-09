@@ -1,4 +1,7 @@
-import requests, datetime, json, yagmail
+import datetime
+import json
+import requests
+import yagmail
 
 SENDING_EMAIL = "frenchtoastreport@gmail.com"
 

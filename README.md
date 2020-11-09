@@ -9,7 +9,7 @@ This command line app will email a set of users when this delectable dish is on 
 ---
 ## How to:
 1. populate the users.json file with email/name pairs of all your friends
-2. set up the sending gmail account via [Yagmail](https://github.com/kootenpv/yagmail) by running to following in the python console:
+2. set up the sending gmail account via [Yagmail](https://github.com/kootenpv/yagmail) by running to following in the python console: 
     ```python
     import yagmail
     yagmail.register(SENDING_EMAIL, yourpassword)
@@ -21,6 +21,7 @@ This command line app will email a set of users when this delectable dish is on 
 To do:
 - [ ] refactor user addition as command line argument
 - [X] set up Yagmail integration
+- [ ] set up unsubscribing 
 - [ ] host
 
 
